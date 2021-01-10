@@ -1,31 +1,17 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {TouchableOpacity} from 'react-native';
+import {Container, TextContainer} from './styles';
 
 const SignIn: React.FC = () => {
   const navigation = useNavigation();
   return (
-    <View style={Styled.Container}>
+    <Container>
       <TouchableOpacity onPress={() => navigation.navigate('DrawerNavigation')}>
-        <Text style={Styled.TextContainer}>Sign in (touch me)</Text>
+        <TextContainer>Sign in (touch me)</TextContainer>
       </TouchableOpacity>
-    </View>
+    </Container>
   );
 };
-
-const Styled = StyleSheet.create({
-  Container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#312e38',
-  },
-  TextContainer: {
-    fontSize: 36,
-    fontWeight: 'bold',
-    color: '#F4EDE8',
-  },
-});
 
 export default SignIn;

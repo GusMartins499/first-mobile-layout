@@ -1,19 +1,20 @@
 import React from 'react';
 import {createDrawerNavigator, DrawerItemList} from '@react-navigation/drawer';
 import {ScrollView} from 'react-native-gesture-handler';
-import {Image, StyleSheet, View} from 'react-native';
+import {Image, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 
 import logo from '../../assets/Logo-Example.png';
+import {Header} from './styles';
 
 import Screen1 from '../../pages/Screen1';
 import Screen2 from '../../pages/Screen2';
 
 const CustomDrawer = (props: any) => (
   <ScrollView>
-    <View style={Styled.Header}>
+    <Header>
       <Image source={logo} />
-    </View>
+    </Header>
     <DrawerItemList
       activeTintColor="#F4EDE8"
       inactiveTintColor="#666360"
