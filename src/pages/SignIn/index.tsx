@@ -1,16 +1,34 @@
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
-import {TouchableOpacity} from 'react-native';
-import {Container, TextContainer} from './styles';
+import {KeyboardAvoidingView, ScrollView, Platform, View} from 'react-native';
+import {Container, Button, ButtonText, TextContainer} from './styles';
+
+import Input from '../../components/Input';
 
 const SignIn: React.FC = () => {
   const navigation = useNavigation();
   return (
-    <Container>
-      <TouchableOpacity onPress={() => navigation.navigate('DrawerNavigation')}>
-        <TextContainer>Sign in (touch me)</TextContainer>
-      </TouchableOpacity>
-    </Container>
+    <>
+      <KeyboardAvoidingView
+        style={{flex: 1}}
+        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+        enabled>
+        <ScrollView
+          keyboardShouldPersistTaps="handled"
+          contentContainerStyle={{flex: 1}}>
+          <Container>
+            <View>
+              <TextContainer>Faça seu login</TextContainer>
+            </View>
+            <Input name="email" placeholder="E-mail" />
+            <Input name="senha" placeholder="Senha" secureTextEntry />
+            <Button onPress={() => navigation.navigate('DrawerNavigation')}>
+              <ButtonText>Entrar</ButtonText>
+            </Button>
+          </Container>
+        </ScrollView>
+      </KeyboardAvoidingView>
+    </>
   );
 };
 

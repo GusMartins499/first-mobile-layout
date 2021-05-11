@@ -8,7 +8,10 @@ const Stack = createStackNavigator();
 
 const StackNavigation: React.FC = () => (
   <Stack.Navigator
-    screenOptions={{headerShown: false}}
+    screenOptions={{
+      headerShown: false,
+      cardStyle: {backgroundColor: '#312e38'},
+    }}
     initialRouteName="SignIn">
     <Stack.Screen name="SignIn" component={SignIn} />
     <Stack.Screen name="DrawerNavigation" component={DrawerNavigation} />
